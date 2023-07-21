@@ -43,12 +43,6 @@ while cpf != (cpf[0] * len(cpf)):
 
         segundo_digito = digito if digito <=9 else 0
 
-        print(primeiro_digito)
-        print(cpf[-2])
-        print(segundo_digito)
-        print(cpf[-1])
-
-
         if primeiro_digito == int(cpf[-2]) and segundo_digito == int(cpf[-1]):
             os.system('cls')
             print(f'O CPF {cpf} é válido')
