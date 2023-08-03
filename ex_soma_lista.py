@@ -7,7 +7,7 @@
 # lista_b     = [1, 2, 3, 4]
 # =================== resultado
 # lista_soma  = [2, 4, 6, 8]
-
+from itertools import zip_longest
 # # def soma_lista(lista1, lista2):
 #     max_range = min(len(lista1), len(lista2))
 #     return [lista1[i] + lista2[i] for i in range(max_range)]
@@ -15,10 +15,14 @@
 lista_a = [1, 2, 3.5, 4, 5.8, 6, 7]
 lista_b = [1.1, 2, 3.234, 4]
 # print(soma_lista(lista_a, lista_b))
+# try:
+#     lista_soma = [x + y for x, y in zip(lista_a, lista_b)]
+#     print(lista_soma)
+# except TypeError:
+#     print('A lista contém valores diferente de int ou float')
+
 try:
-    lista_soma = [x + y for x, y in zip(lista_a, lista_b)]
+    lista_soma = [x + y for x, y in zip_longest(lista_a, lista_b, fillvalue=0)]
     print(lista_soma)
 except TypeError:
     print('A lista contém valores diferente de int ou float')
-
-
