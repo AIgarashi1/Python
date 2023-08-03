@@ -12,8 +12,13 @@
 #     max_range = min(len(lista1), len(lista2))
 #     return [lista1[i] + lista2[i] for i in range(max_range)]
 
-lista_a = [1, 2, 3, 4, 5, 6, 7]
-lista_b = [1, 2, 3, 4]
+lista_a = [1, 2, 3.5, 4, 5.8, 6, 7]
+lista_b = [1.1, 2, 3.234, 4]
 # print(soma_lista(lista_a, lista_b))
-lista_soma = [x + y for x, y in zip(lista_a, lista_b)]
-print(lista_soma)
+try:
+    lista_soma = [x + y for x, y in zip(lista_a, lista_b)]
+    print(lista_soma)
+except TypeError:
+    print('A lista contém valores diferente de int ou float')
+
+
