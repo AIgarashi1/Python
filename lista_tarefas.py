@@ -6,6 +6,7 @@
 # desfazer = [] -> Refazer ['caminhar', 'fazer café']
 # refazer = todo ['fazer café']
 # refazer = todo ['fazer café', 'caminhar']
+import os
 
 def show_list(todo_list):
     print('Lista de tarefas:')
@@ -41,13 +42,13 @@ while(comando != ' '):
         show_list(lista_tarefa)
     elif comando == 'desfazer':
         undo(lista_tarefa, lista_removidos)
-        show_list(lista_tarefa)
     elif comando == 'refazer': 
         redo(lista_tarefa, lista_removidos)
-        show_list(lista_tarefa)
+    elif comando == 'clear':
+        os.system('cls')
+        continue
     else:
         include(lista_tarefa, comando)
-        show_list(lista_tarefa)
         lista_removidos.clear()
 
     print('\n\n\n')
