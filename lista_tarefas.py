@@ -9,9 +9,12 @@
 import os
 
 def show_list(todo_list):
-    print('Lista de tarefas:')
-    for item in todo_list:
-        print(item)
+    if len(todo_list) > 0:
+        print('Tarefas:')
+        for item in todo_list:
+            print(f'\t{item}')
+    else:
+        print('Não há tarefas')
 
 def undo(todo_list, undo_list):
     if len(todo_list) > 0:
@@ -36,19 +39,19 @@ lista_removidos = []
 while(comando != ' '):
     print('Comandos: listar, desfazer, refazer')
     comando = input('Digite uma tarefa para incluir ou um comando para ser executado: ')
-    print()
+    os.system('cls')
 
     if comando == 'listar':
         show_list(lista_tarefa)
     elif comando == 'desfazer':
         undo(lista_tarefa, lista_removidos)
+        show_list(lista_tarefa)
     elif comando == 'refazer': 
         redo(lista_tarefa, lista_removidos)
-    elif comando == 'clear':
-        os.system('cls')
-        continue
+        show_list(lista_tarefa)
     else:
         include(lista_tarefa, comando)
         lista_removidos.clear()
+        show_list(lista_tarefa)
 
     print('\n\n\n')
