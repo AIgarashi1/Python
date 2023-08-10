@@ -1,11 +1,3 @@
-# Exercício - todo_list de tarefas com desfazer e refazer
-# todo = [] -> todo_list de tarefas
-# todo = ['fazer café'] -> Adicionar fazer café
-# todo = ['fazer café', 'caminhar'] -> Adicionar caminhar
-# desfazer = ['fazer café',] -> Refazer ['caminhar']
-# desfazer = [] -> Refazer ['caminhar', 'fazer café']
-# refazer = todo ['fazer café']
-# refazer = todo ['fazer café', 'caminhar']
 import os
 
 def show_list(todo_list):
@@ -73,7 +65,7 @@ while(comando != ' '):
         comando = undo(lista_undo, lista_redo)
         undo_flag = True
 
-    if comando == 'refazer': 
+    elif comando == 'refazer': 
         undo_flag = False
         comando = redo(lista_undo, lista_redo)
 
